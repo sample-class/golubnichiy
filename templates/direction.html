@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block container %}
+
+
+    <h1 class="display-5 mt-4">Летим из {{ direct }} </h1>
+    <p class="mb-4">Найдено {{ count }} туров, от {{ min_price }} до {{ max_price }} и от {{ min_nights }} до {{ max_nights }} ночей</p>
+    <!-- HERO -->
+
+
+
+    <!-- CARDS -->
+
+    <div class="row mt-5">
+        {% for i in dir_extract %}
+
+        <div class="col-4">
+            <div class="card mb-3" >
+            <img src= {{tours[i]["picture"]}} width="300" height="200" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">{{tours[i]["title"]}}</h5>
+             <p class="card-text">{% filter truncate(100) %} {{tours[i]["description"]}} {% endfilter %}</p>
+                <a href=/tours/{{ i }} class="btn btn-sm btn-primary">Подробнее</a>
+            </div>
+        </div>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+</div>
+
+</body>
+</html>
